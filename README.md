@@ -1,2 +1,3 @@
-# juros-suzy-brito-advocacia
-Landing Page de juros abusivos - Suzy Brito Advocacia
+# Juro Abusivos - Suzy Brito Advocacia
+
+Desenvolvimento de uma Landing Page
