@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import CookieBanner from "../components/CookieBanner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,6 +22,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Suzy Brito Advocacia" }],
   creator: "Suzy Brito Advocacia",
   publisher: "Suzy Brito Advocacia",
+  icons: {
+    icon: "/icone-suzy-brito-advocacia.png",
+    shortcut: "/icone-suzy-brito-advocacia.png",
+    apple: "/icone-suzy-brito-advocacia.png",
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -38,12 +44,21 @@ export const metadata: Metadata = {
     siteName: "Suzy Brito Advocacia",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/icone-suzy-brito-advocacia.png",
+        width: 512,
+        height: 512,
+        alt: "Suzy Brito Advocacia",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Suzy Brito Advocacia - Especialista em Juros Abusivos",
     description:
       "Advocacia especializada em revisão de contratos bancários e combate a juros abusivos.",
+    images: ["/icone-suzy-brito-advocacia.png"],
   },
   robots: {
     index: true,
@@ -69,6 +84,7 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} antialiased bg-white text-gray-900`}
       >
         {children}
+        <CookieBanner />
       </body>
     </html>
   );
