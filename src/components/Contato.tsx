@@ -270,7 +270,7 @@ const Contato = () => {
                       value={formData.telefone}
                       onChange={handleInputChange}
                       className="border-gray-300 focus:border-primary focus:ring-primary rounded-lg"
-                      placeholder="(71) 99999-9999"
+                      placeholder="(xx) 99999-9999"
                     />
                   </div>
 
