@@ -12,7 +12,6 @@ import {
   AlertTriangle,
   ArrowRight,
   Clock,
-  DollarSign,
 } from "lucide-react";
 import { gsap } from "gsap";
 
@@ -70,8 +69,8 @@ const Problemas = () => {
       title: "Cobranças de Tarifas Indevidas",
       description:
         "Você identificou taxas não contratadas, duplicadas ou valores sem explicação em sua conta ou cartão? Há grandes chances da sua dívida estar sendo ampliada de forma irregular.",
-      color: "text-yellow-600",
-      bgColor: "bg-secondary/30",
+      color: "text-red-800",
+      bgColor: "bg-red-800/10",
     },
     {
       icon: Calculator,
@@ -156,22 +155,14 @@ const Problemas = () => {
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-xl lg:text-2xl font-serif font-bold text-primary">
-                        Tempo é Dinheiro
+                        Imagem aqui!
                       </h3>
                       <p className="text-muted-foreground">
-                        Quanto mais você espera, mais pode perder
+                        Ilustração relacionada ao tempo
                       </p>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-red-500 rounded-full p-3 shadow-lg">
-                <DollarSign className="w-5 h-5 text-white" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-orange-500 rounded-full p-3 shadow-lg">
-                <AlertTriangle className="w-5 h-5 text-white" />
               </div>
             </div>
           </div>

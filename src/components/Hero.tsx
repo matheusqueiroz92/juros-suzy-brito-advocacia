@@ -7,8 +7,6 @@ import {
   MessageCircle,
   ArrowRight,
   Scale,
-  TrendingUp,
-  Shield,
   CheckCircle,
   Gavel,
 } from "lucide-react";
@@ -154,22 +152,6 @@ const Hero = () => {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
-
-            {/* Trust Indicators */}
-            <div className="flex items-center space-x-6 pt-4">
-              <div className="flex items-center space-x-2">
-                <Shield className="w-5 h-5 text-secondary" />
-                <span className="text-sm text-muted-foreground">
-                  Mais de 10 anos de experiência
-                </span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <TrendingUp className="w-5 h-5 text-secondary" />
-                <span className="text-sm text-muted-foreground">
-                  Centenas de casos de sucesso
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Right Content - Image - 40% */}
@@ -190,33 +172,25 @@ const Hero = () => {
                       </div>
                       <div className="space-y-2">
                         <h3 className="text-xl lg:text-2xl font-serif font-bold text-primary">
-                          Justiça Financeira
+                          Imagem aqui!
                         </h3>
                         <p className="text-muted-foreground max-w-xs">
-                          Protegendo seus direitos contra práticas abusivas
+                          Ilustração relacionada a Juros Abusivos
                         </p>
                       </div>
                     </div>
                   </div>
-
-                  {/* Elementos decorativos */}
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-secondary/20 rounded-full"></div>
-                  <div className="absolute bottom-4 left-4 w-6 h-6 bg-primary/20 rounded-full"></div>
                 </div>
               </div>
 
               {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 bg-secondary rounded-full p-4 shadow-lg">
+              {/* <div className="absolute -top-4 -right-4 bg-secondary rounded-full p-4 shadow-lg">
                 <CheckCircle className="w-6 h-6 text-secondary-foreground" />
               </div>
               <div className="absolute -bottom-4 -left-4 bg-primary rounded-full p-4 shadow-lg">
                 <Shield className="w-6 h-6 text-primary-foreground" />
-              </div>
+              </div> */}
             </div>
-
-            {/* Background Decorative Elements */}
-            <div className="absolute -top-8 -right-8 w-16 h-16 bg-secondary/30 rounded-full"></div>
-            <div className="absolute -bottom-8 -left-8 w-20 h-20 bg-primary/20 rounded-full"></div>
           </div>
         </div>
       </div>
