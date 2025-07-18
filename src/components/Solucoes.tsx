@@ -8,19 +8,13 @@ import {
   Shield,
   Users,
   Lightbulb,
-  CheckCircle,
   ArrowRight,
-  TrendingDown,
-  DollarSign,
-  Clock,
   MessageCircle,
-  Target,
 } from "lucide-react";
 import { gsap } from "gsap";
 
 const Solucoes = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const processRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (sectionRef.current) {
@@ -75,56 +69,6 @@ const Solucoes = () => {
     }
   }, []);
 
-  const processSteps = [
-    {
-      icon: FileText,
-      title: "Análise Detalhada",
-      description:
-        "Identificação de cláusulas abusivas e cálculo preciso de juros indevidos",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-50",
-      features: [
-        "Contrato analisado",
-        "Cláusulas identificadas",
-        "Valores calculados",
-      ],
-    },
-    {
-      icon: Target,
-      title: "Estratégia Personalizada",
-      description: "Desenvolvimento de plano de ação específico para seu caso",
-      color: "from-green-500 to-green-600",
-      bgColor: "bg-green-50",
-      features: [
-        "Plano customizado",
-        "Objetivos definidos",
-        "Cronograma estabelecido",
-      ],
-    },
-    {
-      icon: Gavel,
-      title: "Ação Jurídica",
-      description:
-        "Execução da estratégia com acompanhamento completo do processo",
-      color: "from-purple-500 to-purple-600",
-      bgColor: "bg-purple-50",
-      features: ["Processo iniciado", "Acompanhamento", "Resultados obtidos"],
-    },
-    {
-      icon: Shield,
-      title: "Proteção e Resultados",
-      description:
-        "Garantia de seus direitos e recuperação de valores indevidos",
-      color: "from-orange-500 to-orange-600",
-      bgColor: "bg-orange-50",
-      features: [
-        "Direitos protegidos",
-        "Valores recuperados",
-        "Situação resolvida",
-      ],
-    },
-  ];
-
   const services = [
     {
       icon: FileText,
@@ -152,33 +96,6 @@ const Solucoes = () => {
       title: "Acompanhamento",
       subtitle: "Suporte completo",
       description: "Atualizações constantes e acesso direto ao profissional",
-    },
-  ];
-
-  const stats = [
-    {
-      icon: TrendingDown,
-      value: "85%",
-      label: "Redução média nas dívidas",
-      color: "text-green-600",
-    },
-    {
-      icon: DollarSign,
-      value: "R$ 2M+",
-      label: "Valores recuperados",
-      color: "text-blue-600",
-    },
-    {
-      icon: Clock,
-      value: "30 dias",
-      label: "Tempo médio de análise",
-      color: "text-purple-600",
-    },
-    {
-      icon: CheckCircle,
-      value: "500+",
-      label: "Casos de sucesso",
-      color: "text-orange-600",
     },
   ];
 
@@ -243,44 +160,6 @@ const Solucoes = () => {
             ))}
           </div>
         </div>
-
-        {/* Statistics Section */}
-        {/* <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-8 lg:p-12 mb-16 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-50"></div>
-          <div className="relative z-10">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl lg:text-3xl font-serif font-bold text-primary mb-4">
-                Resultados que falam por si
-              </h3>
-              <p className="text-lg text-muted-foreground">
-                Nossa experiência traduzida em números
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="stat-item text-center">
-                  <div
-                    className={`w-16 h-16 ${stat.color
-                      .replace("text-", "bg-")
-                      .replace(
-                        "-600",
-                        "-100"
-                      )} rounded-full flex items-center justify-center mx-auto mb-4`}
-                  >
-                    <stat.icon className={`w-8 h-8 ${stat.color}`} />
-                  </div>
-                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
-                    {stat.value}
-                  </div>
-                  <p className="text-sm lg:text-base text-muted-foreground">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
 
         {/* CTA Section */}
         <div className="text-center">

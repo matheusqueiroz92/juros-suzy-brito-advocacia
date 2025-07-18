@@ -127,9 +127,9 @@ const Contato = () => {
                 {/* Header do Card */}
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                    <Calendar className="w-5 h-5" />
+                    <Calendar className="w-5 h-5 text-secondary" />
                   </div>
-                  <h3 className="text-2xl font-serif font-bold">
+                  <h3 className="text-2xl text-secondary font-serif font-bold">
                     Fale Conosco
                   </h3>
                 </div>
@@ -137,8 +137,11 @@ const Contato = () => {
                 {/* Texto introdutório */}
                 <p className="text-white/90 text-lg leading-relaxed mb-8">
                   Pronto para resolver seus problemas com juros abusivos? Nossa
-                  equipe especializada está à disposição para te ajudar! Entre
-                  em contato conosco.
+                  equipe especializada está à disposição para te ajudar!
+                  <br />
+                  <span className="text-secondary">
+                    Entre em contato conosco agora mesmo.
+                  </span>
                 </p>
 
                 {/* Informações de contato */}
@@ -189,7 +192,7 @@ const Contato = () => {
                   onClick={() =>
                     window.open("https://wa.me/5571999999999", "_blank")
                   }
-                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white border-0 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white border-0 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   WhatsApp
@@ -233,44 +236,42 @@ const Contato = () => {
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label
-                        htmlFor="email"
-                        className="text-sm font-medium text-primary"
-                      >
-                        Email
-                      </Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="border-gray-300 focus:border-primary focus:ring-primary rounded-lg"
-                        placeholder="seu@email.com"
-                      />
-                    </div>
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="email"
+                      className="text-sm font-medium text-primary"
+                    >
+                      Email
+                    </Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="border-gray-300 focus:border-primary focus:ring-primary rounded-lg"
+                      placeholder="seu@email.com"
+                    />
+                  </div>
 
-                    <div className="space-y-2">
-                      <Label
-                        htmlFor="telefone"
-                        className="text-sm font-medium text-primary"
-                      >
-                        Telefone
-                      </Label>
-                      <Input
-                        id="telefone"
-                        name="telefone"
-                        type="tel"
-                        required
-                        value={formData.telefone}
-                        onChange={handleInputChange}
-                        className="border-gray-300 focus:border-primary focus:ring-primary rounded-lg"
-                        placeholder="(71) 99999-9999"
-                      />
-                    </div>
+                  <div className="space-y-2">
+                    <Label
+                      htmlFor="telefone"
+                      className="text-sm font-medium text-primary"
+                    >
+                      Telefone
+                    </Label>
+                    <Input
+                      id="telefone"
+                      name="telefone"
+                      type="tel"
+                      required
+                      value={formData.telefone}
+                      onChange={handleInputChange}
+                      className="border-gray-300 focus:border-primary focus:ring-primary rounded-lg"
+                      placeholder="(71) 99999-9999"
+                    />
                   </div>
 
                   <div className="space-y-2">
@@ -295,7 +296,7 @@ const Contato = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white border-0 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white border-0 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center space-x-2">
