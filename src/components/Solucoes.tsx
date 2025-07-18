@@ -1,0 +1,326 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { Badge } from "@/components/ui/badge";
+import {
+  FileText,
+  Gavel,
+  Shield,
+  Users,
+  Lightbulb,
+  CheckCircle,
+  ArrowRight,
+  TrendingDown,
+  DollarSign,
+  Clock,
+  MessageCircle,
+  Target,
+} from "lucide-react";
+import { gsap } from "gsap";
+
+const Solucoes = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const processRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Animar processo
+              gsap.fromTo(
+                ".process-step",
+                { opacity: 0, x: -50 },
+                {
+                  opacity: 1,
+                  x: 0,
+                  duration: 0.8,
+                  stagger: 0.2,
+                  ease: "power2.out",
+                }
+              );
+
+              // Animar estatísticas
+              gsap.fromTo(
+                ".stat-item",
+                { opacity: 0, scale: 0.8 },
+                {
+                  opacity: 1,
+                  scale: 1,
+                  duration: 0.5,
+                  stagger: 0.1,
+                  ease: "back.out(1.7)",
+                }
+              );
+
+              // Animar linha do tempo
+              gsap.fromTo(
+                ".timeline-line",
+                { scaleX: 0 },
+                {
+                  scaleX: 1,
+                  duration: 1.5,
+                  ease: "power2.out",
+                }
+              );
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(sectionRef.current);
+      return () => observer.disconnect();
+    }
+  }, []);
+
+  const processSteps = [
+    {
+      icon: FileText,
+      title: "Análise Detalhada",
+      description:
+        "Identificação de cláusulas abusivas e cálculo preciso de juros indevidos",
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-50",
+      features: [
+        "Contrato analisado",
+        "Cláusulas identificadas",
+        "Valores calculados",
+      ],
+    },
+    {
+      icon: Target,
+      title: "Estratégia Personalizada",
+      description: "Desenvolvimento de plano de ação específico para seu caso",
+      color: "from-green-500 to-green-600",
+      bgColor: "bg-green-50",
+      features: [
+        "Plano customizado",
+        "Objetivos definidos",
+        "Cronograma estabelecido",
+      ],
+    },
+    {
+      icon: Gavel,
+      title: "Ação Jurídica",
+      description:
+        "Execução da estratégia com acompanhamento completo do processo",
+      color: "from-purple-500 to-purple-600",
+      bgColor: "bg-purple-50",
+      features: ["Processo iniciado", "Acompanhamento", "Resultados obtidos"],
+    },
+    {
+      icon: Shield,
+      title: "Proteção e Resultados",
+      description:
+        "Garantia de seus direitos e recuperação de valores indevidos",
+      color: "from-orange-500 to-orange-600",
+      bgColor: "bg-orange-50",
+      features: [
+        "Direitos protegidos",
+        "Valores recuperados",
+        "Situação resolvida",
+      ],
+    },
+  ];
+
+  const services = [
+    {
+      icon: FileText,
+      title: "Análise de Contratos",
+      subtitle: "Identificação de abusos",
+      description:
+        "Levantamento completo de cláusulas abusivas e valores indevidos",
+    },
+    {
+      icon: Gavel,
+      title: "Revisão Contratual",
+      subtitle: "Redução de dívidas",
+      description:
+        "Adequação de taxas e restituição de valores pagos indevidamente",
+    },
+    {
+      icon: Shield,
+      title: "Defesa Legal",
+      subtitle: "Proteção de direitos",
+      description:
+        "Contestação de cobranças e exclusão de negativações indevidas",
+    },
+    {
+      icon: Users,
+      title: "Acompanhamento",
+      subtitle: "Suporte completo",
+      description: "Atualizações constantes e acesso direto ao profissional",
+    },
+  ];
+
+  const stats = [
+    {
+      icon: TrendingDown,
+      value: "85%",
+      label: "Redução média nas dívidas",
+      color: "text-green-600",
+    },
+    {
+      icon: DollarSign,
+      value: "R$ 2M+",
+      label: "Valores recuperados",
+      color: "text-blue-600",
+    },
+    {
+      icon: Clock,
+      value: "30 dias",
+      label: "Tempo médio de análise",
+      color: "text-purple-600",
+    },
+    {
+      icon: CheckCircle,
+      value: "500+",
+      label: "Casos de sucesso",
+      color: "text-orange-600",
+    },
+  ];
+
+  return (
+    <section
+      id="solucoes"
+      ref={sectionRef}
+      className="py-20 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-primary/3 to-secondary/3 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <Badge
+            variant="secondary"
+            className="mb-4 bg-secondary text-secondary-foreground"
+          >
+            <Lightbulb className="w-4 h-4 mr-2" />
+            Nossas Soluções
+          </Badge>
+          <h2 className="text-3xl lg:text-5xl font-serif font-bold text-primary mb-6">
+            A revisão de contratos bancários pode salvar seu patrimônio
+          </h2>
+          <p className="text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Oferecemos soluções jurídicas especializadas para proteger seus
+            direitos contra práticas abusivas de instituições financeiras
+          </p>
+        </div>
+
+        {/* Services Grid */}
+        <div className="mb-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+              >
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary rounded-t-2xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="w-8 h-8 text-primary" />
+                  </div>
+
+                  <h4 className="text-lg font-semibold text-primary mb-2">
+                    {service.title}
+                  </h4>
+                  <p className="text-sm text-secondary font-medium mb-3">
+                    {service.subtitle}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Statistics Section */}
+        {/* <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-8 lg:p-12 mb-16 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 opacity-50"></div>
+          <div className="relative z-10">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl lg:text-3xl font-serif font-bold text-primary mb-4">
+                Resultados que falam por si
+              </h3>
+              <p className="text-lg text-muted-foreground">
+                Nossa experiência traduzida em números
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <div key={index} className="stat-item text-center">
+                  <div
+                    className={`w-16 h-16 ${stat.color
+                      .replace("text-", "bg-")
+                      .replace(
+                        "-600",
+                        "-100"
+                      )} rounded-full flex items-center justify-center mx-auto mb-4`}
+                  >
+                    <stat.icon className={`w-8 h-8 ${stat.color}`} />
+                  </div>
+                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
+                    {stat.value}
+                  </div>
+                  <p className="text-sm lg:text-base text-muted-foreground">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div> */}
+
+        {/* CTA Section */}
+        <div className="text-center">
+          <div className="bg-gradient-to-r from-primary to-secondary rounded-3xl p-8 lg:p-12 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="relative z-10">
+              <h3 className="text-2xl lg:text-4xl font-serif font-bold mb-6">
+                Pronto para recuperar o que é seu?
+              </h3>
+              <p className="text-lg lg:text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                Não deixe que práticas abusivas continuem prejudicando suas
+                finanças. Entre em contato agora e descubra como podemos ajudar.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() =>
+                    window.open("https://wa.me/5571999999999", "_blank")
+                  }
+                  className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Falar com Especialista
+                </button>
+                <button
+                  onClick={() => {
+                    const element = document.querySelector("#sobre");
+                    element?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 flex items-center justify-center"
+                >
+                  Conhecer a Advogada
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Solucoes;
