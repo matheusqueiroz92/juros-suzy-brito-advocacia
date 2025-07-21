@@ -11,9 +11,10 @@ import {
   Shield,
   AlertTriangle,
   ArrowRight,
-  Clock,
+  ChevronRight,
 } from "lucide-react";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 const Problemas = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -142,79 +143,82 @@ const Problemas = () => {
           ))}
         </div>
 
-        {/* Image and Text Section */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image Section */}
-          <div className="image-section relative">
-            <div className="relative bg-gradient-to-br from-primary/10 to-secondary/20 rounded-3xl p-8 lg:p-12 shadow-2xl">
-              <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
-                <div className="flex items-center justify-center h-64 lg:h-80">
-                  <div className="text-center space-y-6">
-                    <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto">
-                      <Clock className="w-10 h-10 lg:w-12 lg:h-12 text-white" />
+        {/* Integrated Image and Text Section */}
+        <div className="image-section relative">
+          <div className="relative bg-gradient-to-br from-primary/10 to-secondary/20 rounded-3xl p-8 lg:p-12 shadow-2xl">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="grid lg:grid-cols-2 items-stretch">
+                {/* Image Section */}
+                <div className="relative overflow-hidden rounded-l-2xl">
+                  <Image
+                    src="/lendo-documentos.webp"
+                    alt="Pessoa lendo documentos e analisando contratos"
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+
+                {/* Text Section */}
+                <div className="p-6 lg:p-8 space-y-6">
+                  <h3 className="text-2xl lg:text-4xl font-serif font-bold text-primary leading-tight">
+                    O problema pode estar crescendo enquanto você adia a
+                    solução.
+                  </h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Revisar seu contrato no momento certo pode evitar prejuízos
+                    maiores — como juros indevidos, cobranças duplicadas e
+                    tarifas abusivas que afetam diretamente seu bolso.
+                  </p>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <ChevronRight className="w-4 h-4 text-primary" />
+                      <span className="text-primary">
+                        Juros que crescem exponencialmente
+                      </span>
                     </div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl lg:text-2xl font-serif font-bold text-primary">
-                        Imagem aqui!
-                      </h3>
-                      <p className="text-muted-foreground">
-                        Ilustração relacionada ao tempo
-                      </p>
+                    <div className="flex items-center space-x-3">
+                      <ChevronRight className="w-4 h-4 text-primary" />
+                      <span className="text-primary">
+                        Taxas não contratadas
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <ChevronRight className="w-4 h-4 text-primary" />
+                      <span className="text-primary">Cobranças duplicadas</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <ChevronRight className="w-4 h-4 text-primary" />
+                      <span className="text-primary">
+                        Seguros embutidos sem autorização
+                      </span>
                     </div>
                   </div>
+
+                  <Button
+                    size="lg"
+                    className="group relative bg-gradient-to-r from-primary via-primary to-secondary hover:from-secondary hover:to-primary text-primary-foreground px-10 py-6 text-xl font-bold animate-button-glow transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 overflow-hidden border-0"
+                    onClick={() =>
+                      window.open("https://wa.me/5571999999999", "_blank")
+                    }
+                  >
+                    {/* Background animation */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    {/* Shine effect */}
+                    <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shine"></div>
+
+                    {/* Content */}
+                    <div className="relative flex items-center space-x-3">
+                      <span className="font-extrabold">
+                        Preciso de mais informações
+                      </span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                    </div>
+                  </Button>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Text Section */}
-          <div className="space-y-6">
-            <h3 className="text-2xl lg:text-4xl font-serif font-bold text-primary leading-tight">
-              O problema pode estar crescendo enquanto você adia a solução.
-            </h3>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Revisar seu contrato no momento certo pode evitar prejuízos
-              maiores — como juros indevidos, cobranças duplicadas e tarifas
-              abusivas que afetam diretamente seu bolso.
-            </p>
-
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                <span className="text-muted-foreground">
-                  Juros que crescem exponencialmente
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span className="text-muted-foreground">
-                  Taxas não contratadas
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                <span className="text-muted-foreground">
-                  Cobranças duplicadas
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-muted-foreground">
-                  Seguros embutidos sem autorização
-                </span>
-              </div>
-            </div>
-
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-              onClick={() =>
-                window.open("https://wa.me/5571999999999", "_blank")
-              }
-            >
-              Preciso de mais informações
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
           </div>
         </div>
       </div>

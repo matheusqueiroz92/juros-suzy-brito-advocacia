@@ -11,13 +11,12 @@ import {
   Gavel,
 } from "lucide-react";
 import { gsap } from "gsap";
-// import Image from "next/image";
+import Image from "next/image";
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const leftContentRef = useRef<HTMLDivElement>(null);
   const rightContentRef = useRef<HTMLDivElement>(null);
-  const hammerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (heroRef.current) {
@@ -34,16 +33,6 @@ const Hero = () => {
         { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" },
         "-=0.4"
       );
-
-      // Animar martelo
-      gsap.to(hammerRef.current, {
-        rotation: 15,
-        duration: 1.5,
-        ease: "power2.inOut",
-        yoyo: true,
-        repeat: -1,
-        transformOrigin: "bottom center",
-      });
 
       // Animar elementos flutuantes de martelo
       gsap.to(".hammer-element", {
@@ -65,8 +54,8 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-gray-50 to-secondary/10 overflow-hidden"
     >
       {/* Background Elements - Martelos */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-16 h-16 hammer-element">
+      <div className="absolute inset-0 overflow-hidden hidden lg:block">
+        <div className="absolute top-32 left-10 w-16 h-16 hammer-element">
           <Gavel className="w-full h-full text-primary/20" />
         </div>
         <div className="absolute top-40 right-20 w-12 h-12 hammer-element">
@@ -85,19 +74,19 @@ const Hero = () => {
           {/* Conteúdo da esquerda - 60% */}
           <div ref={leftContentRef} className="lg:col-span-3 space-y-8">
             {/* Badges */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-nowrap gap-2 lg:gap-3">
               <Badge
                 variant="outline"
-                className="border-secondary text-primary px-4 py-2 text-sm rounded-lg"
+                className="border-secondary text-primary px-2 py-1 lg:px-4 lg:py-2 text-xs lg:text-sm rounded-lg whitespace-nowrap"
               >
-                <Scale className="w-6 h-6 mr-2" />
+                <Scale className="w-4 h-4 lg:w-6 lg:h-6 mr-1 lg:mr-2" />
                 Advocacia Especializada
               </Badge>
               <Badge
                 variant="outline"
-                className="border-secondary text-primary px-4 py-2 text-sm rounded-lg"
+                className="border-secondary text-primary px-2 py-1 lg:px-4 lg:py-2 text-xs lg:text-sm rounded-lg whitespace-nowrap"
               >
-                <CheckCircle className="w-4 h-4 mr-2" />
+                <CheckCircle className="w-3 h-3 lg:w-4 lg:h-4 mr-1 lg:mr-2" />
                 Revisão de Contratos
               </Badge>
             </div>
@@ -142,54 +131,38 @@ const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-6 text-lg font-semibold transition-all duration-300 hover:shadow-lg"
+                className="group border-2 border-secondary/50 text-secondary hover:bg-secondary hover:text-secondary-foreground px-8 py-6 text-lg font-semibold transition-all duration-300 hover:shadow-lg hover:border-secondary transform hover:-translate-y-1"
                 onClick={() => {
                   const element = document.querySelector("#problemas");
                   element?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Saiba mais
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <span className="flex items-center space-x-2">
+                  <span>Ver Problemas Comuns</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
               </Button>
             </div>
           </div>
 
           {/* Right Content - Image - 40% */}
           <div ref={rightContentRef} className="lg:col-span-2 relative">
-            <div className="relative bg-gradient-to-br from-primary/10 to-secondary/20 rounded-3xl p-8 lg:p-12 shadow-2xl">
+            <div className="relative bg-gradient-to-br from-primary/10 to-secondary/20 rounded-3xl p-8 lg:p-12 shadow-2xl overflow-hidden">
               {/* Main Image */}
-              <div className="relative bg-white rounded-2xl p-8 lg:p-12 shadow-lg overflow-hidden">
-                <div className="relative h-80 lg:h-96">
-                  {/* Placeholder para imagem relacionada ao tema */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10 rounded-xl flex items-center justify-center">
-                    <div className="text-center space-y-6">
-                      {/* Martelo animado */}
-                      <div
-                        ref={hammerRef}
-                        className="w-24 h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto shadow-lg"
-                      >
-                        <Gavel className="w-12 h-12 lg:w-16 lg:h-16 text-white" />
-                      </div>
-                      <div className="space-y-2">
-                        <h3 className="text-xl lg:text-2xl font-serif font-bold text-primary">
-                          Imagem aqui!
-                        </h3>
-                        <p className="text-muted-foreground max-w-xs">
-                          Ilustração relacionada a Juros Abusivos
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              <div className="relative h-[500px] lg:h-[560px]">
+                {/* Foto da Advogada Suzy Brito */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10 rounded-xl overflow-hidden">
+                  <Image
+                    src="/foto-suzy-hero.webp"
+                    alt="Suzy Brito - Advogada Especialista em Juros Abusivos"
+                    fill
+                    className="object-cover object-top rounded-xl"
+                    priority
+                  />
+                  {/* Overlay sutil para melhorar legibilidade */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl"></div>
                 </div>
               </div>
-
-              {/* Floating Elements */}
-              {/* <div className="absolute -top-4 -right-4 bg-secondary rounded-full p-4 shadow-lg">
-                <CheckCircle className="w-6 h-6 text-secondary-foreground" />
-              </div>
-              <div className="absolute -bottom-4 -left-4 bg-primary rounded-full p-4 shadow-lg">
-                <Shield className="w-6 h-6 text-primary-foreground" />
-              </div> */}
             </div>
           </div>
         </div>

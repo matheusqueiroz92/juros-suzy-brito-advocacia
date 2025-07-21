@@ -188,10 +188,12 @@ const Solucoes = () => {
                     const element = document.querySelector("#sobre");
                     element?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 flex items-center justify-center"
+                  className="group border-2 border-white/80 text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1 hover:shadow-lg"
                 >
-                  Conhecer a Advogada
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <span className="flex items-center space-x-2">
+                    <span>Conhecer a Advogada</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </span>
                 </button>
               </div>
             </div>

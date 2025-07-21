@@ -10,7 +10,7 @@ import {
   User,
   Quote,
   Shield,
-  CheckCircle,
+  FilePen,
 } from "lucide-react";
 import { gsap } from "gsap";
 import Image from "next/image";
@@ -178,12 +178,12 @@ const Sobre = () => {
           </div>
 
           {/* Content Section */}
-          <div ref={contentRef} className="space-y-8">
+          <div ref={contentRef} className="space-y-8 flex flex-col gap-3">
             <div className="space-y-6">
               <h2 className="text-3xl lg:text-5xl font-serif font-bold text-primary leading-tight">
                 Sobre o Escritório
               </h2>
-              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-md text-muted-foreground leading-relaxed">
                 <p>
                   Nosso escritório foi fundado com a missão de proteger os
                   direitos dos consumidores contra práticas abusivas de
@@ -207,7 +207,7 @@ const Sobre = () => {
                 <Badge
                   key={index}
                   variant="outline"
-                  className={`badge-item ${badge.color} px-4 py-3 text-sm font-medium flex items-center space-x-2`}
+                  className={`badge-item ${badge.color} px-4 py-3 text-md font-medium flex items-center space-x-2`}
                 >
                   <badge.icon className="w-4 h-4" />
                   <span>{badge.text}</span>
@@ -217,13 +217,13 @@ const Sobre = () => {
 
             {/* Testimonial Card - movido para baixo da imagem */}
             <Card className="bg-gradient-to-r from-primary/5 to-secondary/5 border-0 shadow-lg">
-              <CardContent className="p-6 lg:p-8">
+              <CardContent className="p-4 lg:p-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center flex-shrink-0">
                     <Quote className="w-6 h-6 text-secondary-foreground" />
                   </div>
                   <div className="space-y-3">
-                    <p className="text-lg text-muted-foreground leading-relaxed italic">
+                    <p className="text-md text-muted-foreground leading-relaxed italic">
                       &ldquo;Acredito que todos merecem acesso à justiça,
                       especialmente quando se trata de enfrentar grandes
                       instituições financeiras. Meu compromisso é usar meu
@@ -231,7 +231,7 @@ const Sobre = () => {
                       sejam tratados com justiça.&rdquo;
                     </p>
                     <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-5 h-5 text-secondary" />
+                      <FilePen className="w-5 h-5 text-secondary" />
                       <span className="font-semibold text-primary">
                         Dra. Suzy Brito
                       </span>
