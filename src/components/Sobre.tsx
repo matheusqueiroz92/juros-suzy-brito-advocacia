@@ -104,7 +104,7 @@ const Sobre = () => {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="relative w-80 h-96 lg:w-96 lg:h-[500px]">
                       <Image
-                        src="/foto-suzy.webp"
+                        src="/foto-suzy-sobre.webp"
                         alt="Dra. Suzy Brito - Advogada Especialista em Direito Bancário"
                         fill
                         className="object-cover rounded-xl"
