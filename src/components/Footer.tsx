@@ -1,6 +1,12 @@
 "use client";
 
-import { Linkedin, Instagram, MessageCircle, ArrowUp } from "lucide-react";
+import {
+  Linkedin,
+  Instagram,
+  MessageCircle,
+  ArrowUp,
+  ChevronRight,
+} from "lucide-react";
 import Image from "next/image";
 import logoFooter from "../../public/logo-rodape.png";
 
@@ -29,7 +35,7 @@ const Footer = () => {
     },
     {
       name: "WhatsApp",
-      href: "https://wa.me/5571999999999",
+      href: "https://wa.me/5577991112884?text=Ol%C3%A1%2C%20Suzy%20Brito%20Advocacia!%20Visitei%20o%20site%20e%20gostaria%20de%20conversar%20sobre%20a%20revis%C3%A3o%20do%20meu%20contrato%20e%20juros%20abusivos.%20Poderiam%20me%20ajudar%3F",
       icon: MessageCircle,
     },
   ];
@@ -105,7 +111,9 @@ const Footer = () => {
                     className="group relative text-sm text-primary-foreground/80 hover:text-primary-foreground transition-all duration-300 flex items-center space-x-2 hover:translate-x-2"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    <span className="w-2 h-2 bg-secondary/50 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-150"></span>
+                    <span className="text-secondary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <ChevronRight />
+                    </span>
                     <span className="relative">
                       {link.name}
                       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-secondary to-secondary/50 transition-all duration-300 group-hover:w-full"></span>
@@ -130,7 +138,9 @@ const Footer = () => {
                     className="group relative text-sm text-primary-foreground/80 hover:text-primary-foreground transition-all duration-300 flex items-center space-x-2 hover:translate-x-2"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    <span className="w-2 h-2 bg-secondary/50 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-150"></span>
+                    <span className="text-secondary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <ChevronRight />
+                    </span>
                     <span className="relative">
                       {policy.name}
                       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-secondary to-secondary/50 transition-all duration-300 group-hover:w-full"></span>

@@ -103,7 +103,7 @@ const FAQ = () => {
         <div className="text-center mb-16">
           <Badge
             variant="outline"
-            className="mb-6 border-secondary text-secondary px-4 py-2 text-sm font-medium"
+            className="mb-4 border-secondary text-secondary"
           >
             <HelpCircle className="w-4 h-4 mr-2" />
             FAQ - Perguntas Frequentes
@@ -166,9 +166,12 @@ const FAQ = () => {
               </p>
               <button
                 onClick={() =>
-                  window.open("https://wa.me/5571999999999", "_blank")
+                  window.open(
+                    "https://wa.me/5577991112884?text=Ol%C3%A1%2C%20Suzy%20Brito%20Advocacia!%20Visitei%20o%20site%20e%20gostaria%20de%20conversar%20sobre%20a%20revis%C3%A3o%20do%20meu%20contrato%20e%20juros%20abusivos.%20Poderiam%20me%20ajudar%3F",
+                    "_blank"
+                  )
                 }
-                className="group relative bg-gradient-to-r from-primary via-primary to-secondary hover:from-secondary hover:to-primary text-primary-foreground px-10 py-6 text-xl font-bold animate-button-glow transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 overflow-hidden border-0 shadow-xl hover:shadow-2xl"
+                className="group relative bg-gradient-to-r from-primary via-primary to-secondary hover:from-secondary rounded-lg hover:to-primary text-primary-foreground px-10 py-6 text-xl font-bold animate-button-glow transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 overflow-hidden border-0 shadow-xl hover:shadow-2xl"
               >
                 {/* Background animation */}
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

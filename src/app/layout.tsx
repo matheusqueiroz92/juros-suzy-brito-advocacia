@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import CookieBanner from "../components/CookieBanner";
+import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -84,6 +85,7 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} antialiased bg-white text-gray-900`}
       >
         {children}
+        <FloatingWhatsApp />
         <CookieBanner />
       </body>
     </html>

@@ -113,7 +113,7 @@ const Solucoes = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
+        {/* Badge and Title */}
         <div className="text-center mb-20">
           <Badge
             variant="secondary"
@@ -176,9 +176,12 @@ const Solucoes = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   onClick={() =>
-                    window.open("https://wa.me/5571999999999", "_blank")
+                    window.open(
+                      "https://wa.me/5577991112884?text=Ol%C3%A1%2C%20Suzy%20Brito%20Advocacia!%20Visitei%20o%20site%20e%20gostaria%20de%20conversar%20sobre%20a%20revis%C3%A3o%20do%20meu%20contrato%20e%20juros%20abusivos.%20Poderiam%20me%20ajudar%3F",
+                      "_blank"
+                    )
                   }
-                  className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+                  className="bg-white text-primary px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:bg-secondary hover:-translate-y-1 flex items-center justify-center"
                 >
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Falar com Especialista
@@ -188,7 +191,7 @@ const Solucoes = () => {
                     const element = document.querySelector("#sobre");
                     element?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="group border-2 border-white/80 text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 flex items-center justify-center transform hover:-translate-y-1 hover:shadow-lg"
+                  className="group border-2 border-white/80 text-white hover:border-primary px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 flex items-center justify-center transform hover:text-primary hover:-translate-y-1 hover:shadow-lg"
                 >
                   <span className="flex items-center space-x-2">
                     <span>Conhecer a Advogada</span>

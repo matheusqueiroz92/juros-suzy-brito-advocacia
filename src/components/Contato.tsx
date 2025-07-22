@@ -15,8 +15,12 @@ import {
   Send,
   Calendar,
   FileText,
+  CheckCircle,
+  AlertCircle,
 } from "lucide-react";
 import { gsap } from "gsap";
+import emailjs from "@emailjs/browser";
+import { EMAILJS_CONFIG } from "@/lib/emailjs-config";
 
 const Contato = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -31,6 +35,10 @@ const Contato = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
   useEffect(() => {
     if (sectionRef.current) {
@@ -75,23 +83,69 @@ const Contato = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
 
-    // Simular envio do formulário
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    try {
+      // Configurações do EmailJS
+      const templateParams = {
+        from_name: formData.nome,
+        from_email: formData.email,
+        from_phone: formData.telefone,
+        message: formData.mensagem,
+        to_email: "suzibrito.adv@gmail.com", // E-mail da advogada
+        subject: `Nova mensagem do site - ${formData.nome}`,
+      };
 
-    // Aqui você pode adicionar a lógica real de envio do formulário
-    console.log("Formulário enviado:", formData);
+      // Enviar e-mail usando EmailJS
+      const result = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
 
-    // Reset do formulário
-    setFormData({
-      nome: "",
-      email: "",
-      telefone: "",
-      mensagem: "",
-    });
+      if (result.status === 200) {
+        setSubmitStatus("success");
+        setStatusMessage(
+          "Mensagem enviada com sucesso! Entraremos em contato em breve."
+        );
 
-    setIsSubmitting(false);
-    alert("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+        // Reset do formulário
+        setFormData({
+          nome: "",
+          email: "",
+          telefone: "",
+          mensagem: "",
+        });
+      } else {
+        throw new Error("Erro ao enviar mensagem");
+      }
+    } catch (error) {
+      console.error("Erro ao enviar e-mail:", error);
+      setSubmitStatus("error");
+      setStatusMessage(
+        "Erro ao enviar mensagem. Abrindo WhatsApp para contato direto..."
+      );
+
+      // Fallback: Abrir WhatsApp com os dados do formulário
+      setTimeout(() => {
+        const whatsappMessage = `Olá! Gostaria de falar sobre meu caso.
+
+Nome: ${formData.nome}
+Email: ${formData.email}
+Telefone: ${formData.telefone}
+
+Mensagem: ${formData.mensagem}`;
+
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        window.open(
+          `https://wa.me/5577991112884?text=${encodedMessage}`,
+          "_blank"
+        );
+      }, 2000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -122,7 +176,7 @@ const Contato = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Card de Informações de Contato - Lado Esquerdo */}
           <div ref={infoRef}>
-            <Card className="bg-gradient-to-br from-primary to-primary/90 text-white border-0 shadow-2xl rounded-2xl overflow-hidden">
+            <Card className="bg-primary text-white border-0 shadow-2xl rounded-2xl overflow-hidden">
               <CardContent className="p-8 lg:p-10">
                 {/* Header do Card */}
                 <div className="flex items-center space-x-3 mb-6">
@@ -190,7 +244,10 @@ const Contato = () => {
                 {/* Botão WhatsApp */}
                 <Button
                   onClick={() =>
-                    window.open("https://wa.me/5571999999999", "_blank")
+                    window.open(
+                      "https://wa.me/5577991112884?text=Ol%C3%A1%2C%20Suzy%20Brito%20Advocacia!%20Visitei%20o%20site%20e%20gostaria%20de%20conversar%20sobre%20a%20revis%C3%A3o%20do%20meu%20contrato%20e%20juros%20abusivos.%20Poderiam%20me%20ajudar%3F",
+                      "_blank"
+                    )
                   }
                   className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white border-0 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
@@ -310,6 +367,26 @@ const Contato = () => {
                       </div>
                     )}
                   </Button>
+
+                  {/* Feedback de Status */}
+                  {submitStatus !== "idle" && (
+                    <div
+                      className={`mt-4 p-4 rounded-lg flex items-center space-x-3 ${
+                        submitStatus === "success"
+                          ? "bg-green-50 border border-green-200 text-green-800"
+                          : "bg-red-50 border border-red-200 text-red-800"
+                      }`}
+                    >
+                      {submitStatus === "success" ? (
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                      ) : (
+                        <AlertCircle className="w-5 h-5 text-red-600" />
+                      )}
+                      <span className="text-sm font-medium">
+                        {statusMessage}
+                      </span>
+                    </div>
+                  )}
                 </form>
               </CardContent>
             </Card>

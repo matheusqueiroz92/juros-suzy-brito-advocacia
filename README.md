@@ -176,4 +176,4 @@ Para suporte técnico ou dúvidas sobre o projeto, entre em contato:
 
 ---
 
-Desenvolvido com ❤️ para o escritório Suzy Brito Advocacia
+Desenvolvido para o escritório Suzy Brito Advocacia
