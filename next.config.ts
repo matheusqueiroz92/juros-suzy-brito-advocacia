@@ -1,14 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  output: "standalone", // Melhora a compatibilidade em produção
+  // output: 'standalone', // Remova ou comente esta linha
   images: {
-    domains: ["suzibrito.adv.br"], // Se você estiver usando o componente Next Image
-    unoptimized: true, // Pode ajudar com problemas de otimização
+    unoptimized: true,
   },
-  // Configuração que explicita o caminho base para os arquivos públicos
-  assetPrefix: "",
-  basePath: "",
+  // ... outras configurações que você possa ter
 };
-
-module.exports = nextConfig;
+export default nextConfig;
