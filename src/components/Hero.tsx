@@ -95,7 +95,7 @@ const Hero = () => {
             <h1 className="text-4xl lg:text-6xl font-serif font-extrabold text-primary leading-tight">
               Suspeita que está pagando{" "}
               <span className="text-secondary">mais do que deveria</span> no seu
-              financiamento ou cartão? TESTE!
+              financiamento ou cartão?
             </h1>
 
             {/* Description */}
