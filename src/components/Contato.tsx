@@ -139,7 +139,7 @@ Mensagem: ${formData.mensagem}`;
 
         const encodedMessage = encodeURIComponent(whatsappMessage);
         window.open(
-          `https://wa.me/5577991112884?text=${encodedMessage}`,
+          `https://wa.me/5577991112894?text=${encodedMessage}`,
           "_blank"
         );
       }, 2000);
@@ -245,7 +245,7 @@ Mensagem: ${formData.mensagem}`;
                 <Button
                   onClick={() =>
                     window.open(
-                      "https://wa.me/5577991112884?text=Ol%C3%A1%2C%20Suzy%20Brito%20Advocacia!%20Visitei%20o%20site%20e%20gostaria%20de%20conversar%20sobre%20a%20revis%C3%A3o%20do%20meu%20contrato%20e%20juros%20abusivos.%20Poderiam%20me%20ajudar%3F",
+                      "https://wa.me/5577991112894?text=Ol%C3%A1%2C%20Suzy%20Brito%20Advocacia!%20Visitei%20o%20site%20e%20gostaria%20de%20conversar%20sobre%20a%20revis%C3%A3o%20do%20meu%20contrato%20e%20juros%20abusivos.%20Poderiam%20me%20ajudar%3F",
                       "_blank"
                     )
                   }
